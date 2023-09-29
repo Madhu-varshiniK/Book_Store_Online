@@ -1,0 +1,60 @@
+.login-container {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    min-height: 90vh; /* This will cover the entire viewport height */
+    background-color: #f0f0f0; /* Set a background color if desired */
+  }
+  
+  .login-form {
+    background-color: #e0d8d800;
+    padding: 20px;
+    margin-top: 30px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 270px;
+    text-align: center; /* Center align the form content */
+  }
+  
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+    text-align: left;
+  }
+  
+  input {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  
+  .checkbox {
+    margin-top: 10px;
+  }
+  
+  /* Center align the buttons horizontally and give them a width */
+  button {
+    width: 100%;
+    max-width: 200px; /* Set your desired maximum width */
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    /* margin: 0 auto; Center align horizontally */
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  

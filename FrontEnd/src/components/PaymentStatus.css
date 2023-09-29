@@ -1,0 +1,48 @@
+/* CSS for Payment Success and failure */
+
+.containerPayment {
+    background-color: #F7F7F7;
+    font-family: 'raleway', sans-serif;
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+  }
+  
+  .contentPayment {
+    max-width: 800px;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .titlePayment {
+    color: #000000; /* Black color */
+    font-size: 2rem;
+    font-weight: bold;
+    margin-top: 1rem;
+  }
+  
+  .messagePayment {
+    color: #32322f; /* Grey color */
+    font-size: 1rem;
+    font-weight: bold;
+    margin-top: 1rem;
+  }
+  
+  .image-container-Payment {
+    margin: 2rem 0;
+  }
+  
+  .imagePayment {
+    max-width: 50%;
+    height: 50%;
+  }
+  
+  .linkPayment {
+    text-decoration: underline;
+    font-size: 1.2rem;
+    margin-top: 2rem;
+  }
+  

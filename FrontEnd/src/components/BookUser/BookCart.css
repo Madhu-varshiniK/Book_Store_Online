@@ -1,0 +1,26 @@
+  .cart-card {
+    margin: auto;
+    padding: 5px;
+    height: 100%;
+    width: 100%;
+    box-shadow: 5px 5px 10px #2b2a2a;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: flex-start;
+    align-content: flex-start; */
+  }
+  .cart-card > img {
+    width: 100%;
+    height: 63%;
+  }
+  .cart-card article {
+    padding: 5px;
+  }
+  .cart-card h3 {
+    padding: 4px;
+  }
+  
+  .cart-card p {
+    padding: 3x;
+  }
