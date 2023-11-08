@@ -16,7 +16,7 @@ app.use("/users", users) //localhost:5000/users
 app.use("/checkout",payment) //localhost:5000/checkout
 
 mongoose.connect(
-    "mongodb+srv://admin:tkJCg07ohOXFzRhX@cluster0.xvkycsb.mongodb.net/?retryWrites=true&w=majority"
+    "mongodb+srv://madhuvarshinik21it:3012varsh@cluster0.is2y83j.mongodb.net/?retryWrites=true&w=majority"
     )
     .then(() => console.log("Connected to DB"))
     .then(() => {

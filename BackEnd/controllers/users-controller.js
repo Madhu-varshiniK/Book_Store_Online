@@ -1,4 +1,7 @@
 const Users = require("../model/Users");
+const {OAuth2Client} = require('google-auth-library');
+
+const client=new OAuth2Client("594268295945-pq27d73kpuesmpo3tua8te66nscqca58.apps.googleusercontent.com");
 
 const getallUsers = async (req, res, next) => {
     let users;
@@ -29,6 +32,41 @@ const getUserId = async (req, res, next) => {
     return res.status(200).json({user});
 
 };
+
+const googleLogin = async (req, res, next) => {
+    try {
+      const { tokenId } = req.body;
+      console.log(tokenId);
+      
+      const response = await client.verifyIdToken({ idToken: tokenId, audience: "594268295945-pq27d73kpuesmpo3tua8te66nscqca58.apps.googleusercontent.com" });
+      const { email_verified, name, email } = response.payload;
+      
+      if (!email_verified) {
+        return res.status(400).json({ message: "Email not verified" });
+      }
+  
+      const user = await Users.findOne({ email });
+  
+      if (user) {
+            return res.status(200).json({ message: "Login successful" });
+        }
+        let password=email+name;
+        let isAdmin=false;
+      const newUser = new Users({
+        name,
+        email,
+        password,
+        isAdmin
+      });
+  
+        await newUser.save();
+        return res.status(200).json({ message: "Login successful" });
+    } catch (err) {
+      console.error(err);
+      return res.status(500).json({ message: "Internal server error" });
+    }
+  };
+  
 
 const login = async (req, res, next) => {
     const { email, password, isAdmin } = req.body;
@@ -109,6 +147,7 @@ const addPastOrder = async (req, res, next) => {
 
 
 exports.getUserId = getUserId;
+exports.googleLogin = googleLogin;
 exports.login = login;
 exports.addUser = addUser;
 exports.getallUsers = getallUsers;

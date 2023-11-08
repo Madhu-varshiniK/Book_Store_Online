@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
+
+import { GoogleLogin } from '@react-oauth/google';
+
 import {Grid,Container,CssBaseline,TextField,Button,FormControlLabel,Checkbox,Typography,Paper,Box,} from '@mui/material';
 import image from '../../images/Registration_Bg.jpg';
 
@@ -137,6 +140,32 @@ function RegistrationPage() {
                 />
               }
               label="Register as Admin"
+            />
+           <GoogleLogin
+              onSuccess={async credentialResponse=>{
+                try {
+                  const response = await axios.post('http://localhost:5000/users/google', {
+                    tokenId: credentialResponse.credential,
+                  });
+              
+                  console.log(response);
+              
+                  if (response.status === 200) {
+                    console.log('Login successful!');
+                    navigate('/');
+                  } else if (response.status === 400) {
+                    alert('Something went wrong...');
+                  } else {
+                    console.error('Registration failed:', response.data);
+                    alert('Your registration request failed. Please try again.');
+                  }
+                } catch (error) {
+                  console.error('An error occurred:', error);
+                  alert('An error occurred during Google login. Please try again.');
+                }
+              }}
+              onError={(err)=>{console.log(err)}}
+              fullWidth variant="contained" color="primary" style={{backgroundColor: 'white', color: 'black', marginLeft: '200px',marginBottom: '10px', maxWidth: '100px'}}
             />
             <Button type="submit" fullWidth variant="contained" color="primary" style={{backgroundColor: 'black', color: 'white', marginLeft: '50px', maxWidth:'250px'}}>
               Register

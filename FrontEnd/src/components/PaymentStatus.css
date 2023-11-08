@@ -1,6 +1,6 @@
 /* CSS for Payment Success and failure */
 
-.containerPayment {
+/* .containerPayment {
     background-color: #F7F7F7;
     font-family: 'raleway', sans-serif;
     display: grid;
@@ -18,14 +18,14 @@
   }
   
   .titlePayment {
-    color: #000000; /* Black color */
+    color: #000000; 
     font-size: 2rem;
     font-weight: bold;
     margin-top: 1rem;
   }
   
   .messagePayment {
-    color: #32322f; /* Grey color */
+    color: #32322f; 
     font-size: 1rem;
     font-weight: bold;
     margin-top: 1rem;
@@ -45,4 +45,4 @@
     font-size: 1.2rem;
     margin-top: 2rem;
   }
-  
+   */

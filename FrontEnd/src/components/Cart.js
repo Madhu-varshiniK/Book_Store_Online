@@ -25,7 +25,6 @@ const Cart = () => {
     }
   };
 
-  //fetch the user Id to add cart books 
   const fetchUserId = async () => {
     try {
       const response = await axios.get(`http://localhost:5000/users`);

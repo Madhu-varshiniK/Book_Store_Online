@@ -6,6 +6,9 @@ import { useUser } from '../../UserContext';
 import image from '../../images/Login_Bg.jpg'
 import Cookies from 'js-cookie';
 
+import { GoogleLogin } from '@react-oauth/google';
+
+
 
 function LoginPage() {
     const [email, setEmail] = useState('');
@@ -103,6 +106,33 @@ function LoginPage() {
                 control={<Checkbox value="remember" color="primary" checked={isAdmin} onChange={() => setIsAdmin(!isAdmin)} />}
                 label="Login as Admin"
               />
+              <GoogleLogin
+              onSuccess={async credentialResponse=>{
+                try {
+                  const response = await axios.post('http://localhost:5000/users/google', {
+                    tokenId: credentialResponse.credential,
+                  });
+              
+                  console.log(response);
+              
+                  if (response.status === 200) {
+                    console.log('Login successful!');
+                    navigate('/');
+                  } else if (response.status === 400) {
+                    alert('Something went wrong...');
+                  } else {
+                    console.error('Registration failed:', response.data);
+                    alert('Your registration request failed. Please try again.');
+                  }
+                  login(true, isAdmin, email);
+                } catch (error) {
+                  console.error('An error occurred:', error);
+                  alert('An error occurred during Google login. Please try again.');
+                }
+              }}
+              onError={(err)=>console.log(err)}
+              fullWidth variant="contained" color="primary" style={{backgroundColor: 'white', color: 'black', marginLeft: '200px',marginBottom: '10px', maxWidth: '100px'}}
+            />
               <Button type="submit" fullWidth variant="contained" color="primary" style={{backgroundColor: 'black', color: 'white', marginLeft: '50px', maxWidth: '250px'}}>
                 Login
               </Button>

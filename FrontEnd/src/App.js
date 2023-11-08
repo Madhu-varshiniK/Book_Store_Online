@@ -11,7 +11,7 @@ import Success from "./components/Success";
 import Login from "./components/Login/Login";
 import RegistrationPage from "./components/Register/Register";
 import MyProfile from "./components/BookUser/MyProfile";
-
+import Footer from "./components/Footer";
 function App() {
   return (
     <React.Fragment >
@@ -31,8 +31,10 @@ function App() {
         <Route path="/login" element={<Login/>} exact />
         <Route path="/register" element={<RegistrationPage/>} exact />
         <Route path="/myprofile" element={<MyProfile/>} exact />
+        <Route path="/footer" element={<Footer/>} exact />
       </Routes>
     </main>
+    <Footer/>
     </React.Fragment>
   );
 }

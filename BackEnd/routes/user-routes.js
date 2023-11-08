@@ -15,6 +15,7 @@ const addUserValidation = [
 
 router.post("/register", addUserValidation, usersController.addUser);
 router.post("/login", usersController.login)
+router.post("/google", usersController.googleLogin)
 router.get("/:id", usersController.getUserId);
 router.get("/", usersController.getallUsers);
 router.put("/:id", usersController.addPastOrder);
